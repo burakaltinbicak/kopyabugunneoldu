@@ -4,6 +4,7 @@ import React, { useRef } from "react"
 import { useRouter } from "next/navigation"
 import DetayButton from "../Button/DetayButton"
 interface Haber {
+    _id: string
     id: string
     slug: string
     zaman: string
@@ -81,7 +82,7 @@ export default function NewsCardSlider({ haberler, reklamGorseli }: props) {
                             draggable={false}
                         />
                         <p className="text-gray-400 text-xs mb-4 leading-relaxed line-clamp-3">{haber.ozet}</p>
-                        <DetayButton onClick={() => router.push(`/news/${haber.slug}`)} />
+                        <DetayButton onClick={() => router.push(`/news/${haber.id}`)} />
                     </div>
                     {(index + 1) % 4 === 0 && (
                         <div className="flex-shrink-0 w-40 sm:w-48 lg:w-56 h-full border-r border-[#DEDEDE] flex items-center justify-center">

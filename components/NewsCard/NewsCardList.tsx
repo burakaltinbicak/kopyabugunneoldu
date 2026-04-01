@@ -4,7 +4,7 @@ import React, { useRef } from "react"
 import { useRouter } from "next/navigation"
 
 interface Props {
-    haberler: string[]
+    haberler: { _id: string; title: string; slug: string }[]
 }
 
 export default function NewsCardList({ haberler }: Props) {
@@ -37,10 +37,9 @@ export default function NewsCardList({ haberler }: Props) {
         isDragging.current = false
         if (listRef.current) listRef.current.style.cursor = "grab"
     }
-
-    const handleCardClick = (haber: string) => {
+    const handleCardClick = (haber: { _id: string; title: string; slug: string }) => {
         if (hasDragged.current) return
-        router.push(`/news/${haber}`)
+        router.push(`/news/${haber._id}`)
     }
 
     return (
@@ -65,7 +64,7 @@ export default function NewsCardList({ haberler }: Props) {
                             onClick={() => handleCardClick(haber)}
                         >
                             <p className="text-center font-[family-name:var(--font-poppins)] text-base sm:text-lg lg:text-2xl leading-relaxed text-[#333333] group-hover:text-red-600 transition-colors">
-                                {haber}
+                                {haber.title}
                             </p>
                         </div>
                     ))}

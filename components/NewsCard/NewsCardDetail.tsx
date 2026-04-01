@@ -4,6 +4,7 @@ import Image from "next/image";
 
 interface Haber {
     id: string
+    _id: string
     numara: string
     zaman: string
     baslik: string
@@ -39,7 +40,7 @@ export default function NewsCardDetail({ haberler, seciliId }: props) {
             }
 
             const haber = seciliId
-                ? haberler.find(h => h.id === seciliId || (h as any).slug === seciliId || h.baslik === decodedId)
+                ? haberler.find(h => h._id === seciliId || h.id === seciliId || (h as any).slug === seciliId || h.baslik === decodedId)
                 : haberler[0];
 
             if (haber) {

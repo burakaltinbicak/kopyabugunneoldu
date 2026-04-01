@@ -13,7 +13,7 @@ import api from "@/lib/axios"
 export default function NewsDetailPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = use(params)
     const [haberler, setHaberler] = useState([])
-    const [kategoriler, setKategoriler] = useState<{ name: string; slug: string }[]>([])
+    const [kategoriler, setKategoriler] = useState<{ title: string; slug: string }[]>([])
     const [yukleniyor, setYukleniyor] = useState(true)
     const [hata, setHata] = useState(false)
 
@@ -46,7 +46,7 @@ export default function NewsDetailPage({ params }: { params: Promise<{ id: strin
 
         api.get("/categories")
             .then(res => {
-                setKategoriler(res.data.map((k: any) => ({ name: k.name, slug: k.slug })))
+                setKategoriler(res.data.map((k: any) => ({ title: k.title, slug: k.slug })))
 
             })
             .catch(err => {

@@ -4,7 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 
 export interface Kategori {
-    name: string;
+    title: string;
     slug: string;
 }
 
@@ -107,11 +107,11 @@ function Sidebar({ kategoriler }: { kategoriler: Kategori[] }) {
 
                             return (
                                 <div
-                                    key={kategori.slug || kategori.name}
+                                    key={kategori.slug || kategori.title}
                                     onClick={handleNavigation}
                                     className={`cursor-pointer text-left text-base sm:text-lg font-bold transition-colors py-1 hover:text-red-200 ${isAktif ? "text-red-300" : "text-white"}`}
                                 >
-                                    {kategori.name}
+                                    {kategori.title}
                                 </div>
                             )
                         })}

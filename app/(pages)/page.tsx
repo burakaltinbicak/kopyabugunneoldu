@@ -12,7 +12,8 @@ import { useRouter } from "next/navigation"
 
 export default function AnaSayfa() {
   const bugun = format(new Date(), "dd MMMM yyyy", { locale: tr })
-  const [latest, setLatest] = useState<string[]>([])
+  // _id tanımlaması state'e eklendi
+  const [latest, setLatest] = useState<{ _id: string; title: string; slug: string }[]>([])
   const [featured, setFeatured] = useState<{ summary: string } | null>(null)
   const [yukleniyor, setYukleniyor] = useState(true)
   const [hata, setHata] = useState(false)
@@ -22,7 +23,8 @@ export default function AnaSayfa() {
     api.get("/homepage")
       .then(res => {
         setFeatured(res.data.featured)
-        setLatest(res.data.latest.map((h: { title: string }) => h.title))
+        // Gelen veriden _id de haritalanıp state'e aktarıldı
+        setLatest(res.data.latest.map((h: { _id: string; title: string; slug: string }) => ({ _id: h._id, title: h.title, slug: h.slug })))
         setYukleniyor(false)
       })
       .catch(() => {

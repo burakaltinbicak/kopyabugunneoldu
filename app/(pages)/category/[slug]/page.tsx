@@ -18,7 +18,7 @@ export default function CategoryPage() {
     const [haberler, setHaberler] = useState([])
     const [kategoriAdi, setKategoriAdi] = useState("")
     const [ozet, setOzet] = useState("")
-    const [kategoriler, setKategoriler] = useState<{ name: string; slug: string }[]>([])
+    const [kategoriler, setKategoriler] = useState<{ title: string; slug: string }[]>([])
     const [yukleniyor, setYukleniyor] = useState(true)
     const [hata, setHata] = useState(false)
 
@@ -27,7 +27,7 @@ export default function CategoryPage() {
         if (!slug) return
         api.get(`/categories/${slug}/news`)
             .then(res => {
-                setKategoriAdi(res.data.category.name)
+                setKategoriAdi(res.data.category.title)
                 setHaberler(res.data.news.map((h: any) => ({
                     id: h._id,
                     slug: h.slug,
@@ -48,7 +48,7 @@ export default function CategoryPage() {
 
         api.get("/categories")
             .then(res => {
-                setKategoriler(res.data.map((k: any) => ({ name: k.name, slug: k.slug })))
+                setKategoriler(res.data.map((k: any) => ({ title: k.title, slug: k.slug })))
             })
             .catch(err => {
                 setHata(true)
