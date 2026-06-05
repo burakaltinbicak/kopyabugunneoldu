@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bugün Ne Oldu? - Frontend
 
-## Getting Started
+Bu depo, **Bugün Ne Oldu?** projesinin son kullanıcıya hitap eden ana web arayüzüdür. Kullanıcılara içerikleri modern, hızlı ve duyarlı bir şekilde sunmak için tasarlanmıştır.
 
-First, run the development server:
+## 🔗 Proje Ekosistemi
 
+Bu proje, üç parçalı bir mimarinin ana vitrinidir. Ekosistemin diğer repolarına aşağıdan ulaşabilirsiniz:
+
+* **Frontend (Şu an buradasınız):** [kopyabugunneoldu](https://github.com/burakaltinbicak/kopyabugunneoldu)
+* **API / Backend:** [kopyabugunneoldu-api](https://github.com/burakaltinbicak/kopyabugunneoldu-api)
+* **Admin Paneli:** [kopyabugunneoldu-admin](https://github.com/burakaltinbicak/kopyabugunneoldu-admin)
+
+## 💻 Kullanılan Teknolojiler
+
+* **Framework:** Next.js (v16.1.7)
+* **Kütüphane:** React (v19.2.3)
+* **Dil:** TypeScript
+* **Stilleme:** Tailwind CSS (v4)
+* **Araçlar:** Axios, date-fns
+
+## 🚀 Kurulum ve Çalıştırma
+
+Bu projede herhangi bir `.env` (ortam değişkeni) konfigürasyonuna ihtiyaç yoktur.
+
+**1. Repoyu Klonlayın**
 ```bash
+git clone [https://github.com/burakaltinbicak/kopyabugunneoldu.git](https://github.com/burakaltinbicak/kopyabugunneoldu.git)
+cd kopyabugunneoldu
+2. Bağımlılıkları Yükleyin
+
+Bash
+npm install
+3. Geliştirme Sunucusunu Başlatın
+
+Bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Tarayıcınızda http://localhost:3000 adresine giderek projeyi görüntüleyebilirsiniz.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🛠️ Kullanılabilir Komutlar
+npm run dev: Geliştirme sunucusunu başlatır.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+npm run build: Projeyi prodüksiyon (canlı) ortamı için optimize ederek derler.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+npm run start: Derlenmiş projeyi prodüksiyon modunda başlatır.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+npm run lint: Kod standartlarını ESLint ile denetler.
